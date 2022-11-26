@@ -4,15 +4,7 @@ import annotations.ClipUtilPath;
 import annotations.FormatDaemonClass;
 import annotations.JarName;
 import annotations.JdkPath;
-import com.annotations.ClipUtilPath;
-import com.annotations.FormatDaemonClass;
-import com.annotations.JarName;
-import com.annotations.JdkPath;
 import com.google.inject.AbstractModule;
-import com.interfaces.CabdiagFactory;
-import com.interfaces.FormatFactory;
-import com.interfaces.JavaExecutor;
-import com.interfaces.TextBuffer;
 import interfaces.JavaExecutor;
 import interfaces.TextBuffer;
 

@@ -1,9 +1,9 @@
 package classes;
 
-import com.annotations.ClipUtilPath;
+import annotations.ClipUtilPath;
 import com.google.inject.Inject;
-import com.interfaces.JavaExecutor;
-import com.interfaces.TextBuffer;
+import interfaces.JavaExecutor;
+import interfaces.TextBuffer;
 
 import java.io.IOException;
 import java.io.InputStream;

@@ -1,6 +1,6 @@
 package classes;
 
-import com.interfaces.JavaExecutor;
+import interfaces.JavaExecutor;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.log4j.Logger;
 

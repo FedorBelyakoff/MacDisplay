@@ -1,7 +1,5 @@
 package classes;
 
-import com.interfaces.TextBuffer;
-import events.Publisher;
 import interfaces.TextBuffer;
 
 import java.awt.*;
@@ -9,7 +7,7 @@ import java.awt.datatransfer.*;
 import java.io.IOException;
 
 
-public class TextBufferImp implements  FlavorListener, TextBuffer {
+public class TextBufferImp implements  TextBuffer {
 
 
     @Override
@@ -25,8 +23,6 @@ public class TextBufferImp implements  FlavorListener, TextBuffer {
 
 
     private String  getSavedString() {
-//        Clipboard clip = Toolkit.getDefaultToolkit()
-//                         .getSystemClipboard();
         DataFlavor dataFlavor = DataFlavor.stringFlavor;
 
         Clipboard clip = Toolkit.getDefaultToolkit()
@@ -58,9 +54,4 @@ public class TextBufferImp implements  FlavorListener, TextBuffer {
 //        notifySubscribers(new EventBuilder().addProperty());
     }
 
-
-    @Override
-    public void flavorsChanged(FlavorEvent e) {
-        notifySubscribers();
-    }
 }

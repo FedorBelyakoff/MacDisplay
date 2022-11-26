@@ -25,14 +25,5 @@ public class StringIOConverter {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-//        StringBuilder result = new StringBuilder();
-//        Scanner sc = new Scanner(in, DEFAULT_CMD_CHARSET);
-//        while (sc.hasNextLine()) {
-//            result.append(sc.nextLine());
-//            result.append('\n');
-//        }
-//        int endPosition = result.length() - 1;
-//        result.deleteCharAt(endPosition);
-//        return result.toString();
     }
 }
