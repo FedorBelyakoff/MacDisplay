@@ -1,10 +1,13 @@
 package classes;
 
+import com.google.inject.Inject;
+
 import java.util.regex.Pattern;
 
 public class MacAddress {
     private final String mac;
 
+    @Inject
     public MacAddress(String allFormatsMac) {
         mac = allFormatsMac;
     }

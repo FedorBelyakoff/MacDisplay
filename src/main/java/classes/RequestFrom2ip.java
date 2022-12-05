@@ -1,13 +1,9 @@
 package classes;
 
 import annotations.ManufacturerRequest;
-import com.google.common.base.Charsets;
-import jdk.internal.net.http.RequestPublishers;
-import jdk.internal.net.http.ResponseBodyHandlers;
 
 import java.io.IOException;
 import java.net.URI;
-import java.net.URISyntaxException;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
@@ -24,13 +20,12 @@ public class RequestFrom2ip implements ManufacturerRequest {
 
 
     public String pageStr(MacAddress mac) {
-        RequestPublishers.StringPublisher publisher = new RequestPublishers
-                .StringPublisher(mac.rawFormat(), Charsets.UTF_8);
+        HttpRequest.BodyPublisher publisher1 = HttpRequest.BodyPublishers.ofString(mac.rawFormat());
         HttpRequest request = HttpRequest.newBuilder(url2Ip)
-                .POST(publisher)
+                .POST(publisher1)
                 .build();
 
-        HttpResponse<String> response = null;
+        HttpResponse<String> response;
         try {
             response = HttpClient.newHttpClient()
                     .send(request, BodyHandlers.ofString());
