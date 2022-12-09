@@ -31,10 +31,8 @@ class WidgetTimerTest {
     @Test
     void shouldBeginChangeOpacityAfterOpacityStageTime() {
         timer.start();
+        when(swingTimer.isRunning()).thenReturn(true);
         timer.actionPerformed(e); //1
-//        timer.actionPerformed(e); //2
-//        timer.actionPerformed(e); //3
-//        timer.actionPerformed(e); //4
         timer.actionPerformed(e); //5
         verify(widget).setOpacity(0.9f);
     }
@@ -42,35 +40,28 @@ class WidgetTimerTest {
 
     @Test
     void shouldCloseWidgetWhenTransparentTimeIsOut() {
-        timer.start();
-        when(swingTimer.isRunning()).thenReturn(true);
-        //Opaque phase
-        timer.actionPerformed(e); //1
-        when(swingTimer.isRunning()).thenReturn(false);
         //Transparent phase
-        timer.actionPerformed(e); //1
+        timer.beginTransparentStage();
         when(swingTimer.isRunning()).thenReturn(true);
+        timer.actionPerformed(e); //1
         timer.actionPerformed(e); //2
         timer.actionPerformed(e); //3
         timer.actionPerformed(e); //4
         timer.actionPerformed(e); //5
-        timer.actionPerformed(e); //5
+        timer.actionPerformed(e); //6
+        timer.actionPerformed(e); //7
+        timer.actionPerformed(e); //8
+        timer.actionPerformed(e); //9
+        timer.actionPerformed(e); //10
         verify(widget).close();
     }
 
     @Test
     void shouldChangeOpacityBySteps() {
-//        timer.start();
-//        timer.beginOpaqueStage();
-//        verify(widget).setOpacity(1.0f);
-//        when(swingTimer.isRunning()).thenReturn(true);
-
         when(swingTimer.isRunning()).thenReturn(false);
         timer.beginTransparentStage();
         when(swingTimer.isRunning()).thenReturn(true);
         timer.actionPerformed(e);
-//        verify(widget).setOpacity(1.0f);
-//        timer.actionPerformed(e);
         verify(widget).setOpacity(0.9f);
         timer.actionPerformed(e);
         verify(widget).setOpacity(0.8f);

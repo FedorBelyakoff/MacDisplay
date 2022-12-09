@@ -28,8 +28,8 @@ class RequestFrom2ipTest {
 
     @Test
     void shouldReturnCorrectPageStrWhenTestMacPutted() {
-        String  expected = request.pageStr(mac);
-        assertEquals(expected, testHttpsAnswer());
+        String  actual = request.pageStr(mac);
+        assertEquals(testHttpsAnswer(), actual);
     }
 
     private String testHttpsAnswer() {

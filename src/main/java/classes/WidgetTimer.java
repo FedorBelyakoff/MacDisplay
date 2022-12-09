@@ -129,7 +129,7 @@ public class WidgetTimer implements ActionListener {
     private class TransparentStage implements RunningStage {
 
 
-        public static final int UPDATE_TIME_M_SEC = 200;
+//        public static final int UPDATE_TIME_M_SEC = 200;
 
         private int updateTimeMSec;
 
@@ -155,8 +155,9 @@ public class WidgetTimer implements ActionListener {
 
         @Override
         public void start() {
-            this.stepCounter = (transparentPhaseSec * 1000) / UPDATE_TIME_M_SEC;
-            timer = timerFactory.newInstance(UPDATE_TIME_M_SEC, this);
+            updateTimeMSec = (transparentPhaseSec * 1000) / N_STEPS;
+            this.stepCounter = N_STEPS;
+            timer = timerFactory.newInstance(updateTimeMSec, this);
             timer.setRepeats(true);
         }
 
